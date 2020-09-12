@@ -13,12 +13,12 @@ Budget tracker is a progressive web app which can be used to create and track fu
 ## Installation
 Please download repository and run npm install and configure mongo database client in server.js. It is currently hosted in heroku as well and URL is given in relevant section.
 ## Usage
-The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
+The user will be able to add expenses and deposits to their budget with or without a connection.
 ### Offline Functionality:
   * Enter deposits offline
   * Enter expenses offline
 ### When brought back online:
-  * Offline entries should be added to tracker.
+  * Offline entries should be added persisted in backend(mongo db).
 ## Contributing
 You are most welcome to contribute. There are following ways to contribute:
 1. Please raise a pull request.
