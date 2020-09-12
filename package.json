@@ -11,7 +11,8 @@
     "watch": "nodemon server.js",
     "lite-server": "lite-server",
     "webpack": "webpack",
-    "prestart": "npm run webpack"
+    "prestart": "npm run webpack",
+    "heroku-prebuild": "npm install --dev"
   },
   "repository": {
     "type": "git",
@@ -29,16 +30,16 @@
     "lite-server": "^2.5.3",
     "mongoose": "^5.5.15",
     "morgan": "^1.9.1",
-    "path": "^0.12.7",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-pwa-manifest": "^4.2.0"
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "nodemon": "^2.0.4",
-    "prettier": "^1.13.7"
+    "prettier": "^1.13.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-pwa-manifest": "^4.2.0"
   }
 }
