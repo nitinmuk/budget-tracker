@@ -18,7 +18,7 @@ The user will be able to add expenses and deposits to their budget with or witho
   * Enter deposits offline
   * Enter expenses offline
 ### When brought back online:
-  * Offline entries should be added persisted in backend(mongo db).
+  * Offline entries should be persisted in backend(mongo db).
 ## Contributing
 You are most welcome to contribute. There are following ways to contribute:
 1. Please raise a pull request.
