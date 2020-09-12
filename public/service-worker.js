@@ -44,6 +44,9 @@ self.addEventListener("activate", event => {
   );
 });
 
+/**
+ * caches all GET Requests and return cached response
+ */
 self.addEventListener("fetch", event => {
   if (event.request.url.includes("http") && event.request.method === "GET") {
     event.respondWith(
