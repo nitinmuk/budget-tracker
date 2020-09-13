@@ -1,4 +1,3 @@
-const pendingTransactions = [];
 /**
  * opens indexed DB connection and persist the pending transaction data
  * which is pending because of lack of network
@@ -43,6 +42,7 @@ const processPendingTransactions = () => {
     const transactionListStore = dbTransaction.objectStore(
       "budgetTransactions"
     );
+    const pendingTransactions = [];
     // Opens a Cursor request and iterates over the documents.
     const getCursorRequest = transactionListStore.openCursor();
     getCursorRequest.onsuccess = e => {
@@ -51,7 +51,7 @@ const processPendingTransactions = () => {
         pendingTransactions.push(cursor.value);
         cursor.continue();
       } else {
-        postPendingTransactions();
+        postPendingTransactions(pendingTransactions);
       }
     };
   };
@@ -60,7 +60,7 @@ const processPendingTransactions = () => {
  * opens a connection to indexed DB and call /api/transaction/bulk
  * to persist all those transactions which are currently pending.
  */
-const postPendingTransactions = () => {
+const postPendingTransactions = pendingTransactions => {
   if (pendingTransactions && pendingTransactions.length) {
     fetch("/api/transaction/bulk", {
       method: "POST",
