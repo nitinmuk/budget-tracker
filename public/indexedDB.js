@@ -25,6 +25,10 @@ const saveRecord = transaction => {
   request.onerror = event =>
     console.error(`Error ocurred opening database. event : ${event}`);
 };
+/**
+ * opens indexed DB connection and process pending transactions
+ * i.e. collect all pending transactions and then post it to server.
+ */
 const processPendingTransactions = () => {
   const request = indexedDB.open("budgetTransactions", 1);
   request.onupgradeneeded = ({ target }) => {
