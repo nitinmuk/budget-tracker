@@ -1,3 +1,4 @@
+const { saveRecord, processPendingTransactions } = require("./indexedDB");
 let transactions = [];
 let myChart;
 fetch("/api/transaction")
@@ -141,31 +142,6 @@ function sendTransaction(isAdding) {
       amountEl.value = "";
     });
 }
-/**
- * opens indexed DB connection and persist the transaction data.
- * @param {data which need to be persisted in indexed db} transaction
- */
-function saveRecord(transaction) {
-  const request = window.indexedDB.open("budgetTransactions", 1);
-  request.onupgradeneeded = ({ target }) => {
-    target.result.createObjectStore("budgetTransactions", {
-      keyPath: "id",
-      autoIncrement: true
-    });
-  };
-  request.onsuccess = () => {
-    const db = request.result;
-    const dbTransaction = db.transaction(["budgetTransactions"], "readwrite");
-    const transactionListStore = dbTransaction.objectStore(
-      "budgetTransactions"
-    );
-    transactionListStore.add(transaction);
-    dbTransaction.onerror = event =>
-      console.error(`Error ocurred opening transaction. event : ${event}`);
-  };
-  request.onerror = event =>
-    console.error(`Error ocurred opening database. event : ${event}`);
-}
 
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);
@@ -174,3 +150,7 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
+window.addEventListener("online", () => {
+  processPendingTransactions();
+});

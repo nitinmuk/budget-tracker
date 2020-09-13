@@ -44,24 +44,40 @@ self.addEventListener("activate", event => {
   );
 });
 
-/**
- * caches all GET Requests and return cached response
- */
 self.addEventListener("fetch", event => {
   if (event.request.url.includes("http") && event.request.method === "GET") {
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
-          });
-        });
-      })
-    );
+    return handleGetRequest(event);
   }
 });
+/**
+ * returns cached response for all GET requests except /api/transaction
+ * for /api/transaction it fetches request and update cache with the response
+ * In case network error then responds with current cached response of /api/transaction
+ * @param {GET fetch event} event
+ */
+function handleGetRequest(event) {
+  event.respondWith(
+    caches.match(event.request).then(cachedResponse => {
+      if (!event.request.url.includes("/api/transaction") && cachedResponse) {
+        return cachedResponse;
+      }
+      return caches
+        .open(RUNTIME)
+        .then(cache => {
+          return fetch(event.request)
+            .then(response => {
+              if (response.status === 200) {
+                cache.put(event.request, response.clone());
+              }
+              return response;
+            })
+            .catch(error => {
+              // Network request failed, try to get it from the cache.
+              console.log(error);
+              return cache.match(event.request);
+            });
+        })
+        .catch(error => console.log(error));
+    })
+  );
+}
