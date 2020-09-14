@@ -151,6 +151,4 @@ document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
 
-window.addEventListener("online", () => {
-  processPendingTransactions();
-});
+window.addEventListener("online", processPendingTransactions);
