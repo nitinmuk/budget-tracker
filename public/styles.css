@@ -58,8 +58,10 @@ tr:nth-child(even) {
 }
 .footer {
   transform: skewX(-2deg);
-  text-align: center;
   padding: 20px;
   margin: 10px;
   background-color: cadetblue;
+}
+.link {
+  color: black;
 }
