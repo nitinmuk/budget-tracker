@@ -7,6 +7,7 @@ header {
   transform: skewX(-2deg);
   padding : 2px;
   background-color: cadetblue;
+  text-align: center;
 }
 
 button, input {
@@ -56,7 +57,9 @@ tr:nth-child(even) {
   margin: 0 auto;
 }
 .footer {
+  transform: skewX(-2deg);
   text-align: center;
-  padding :20px;
+  padding: 20px;
+  margin: 10px;
   background-color: cadetblue;
 }
