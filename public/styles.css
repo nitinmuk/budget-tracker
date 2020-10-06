@@ -3,6 +3,12 @@ body {
   font-family: Arial;
 }
 
+header h1 {
+  transform: skewX(-2deg);
+  padding : 2px;
+  background-color: cadetblue;
+}
+
 button, input {
   font-size: 100%;
   font-family: Arial;
