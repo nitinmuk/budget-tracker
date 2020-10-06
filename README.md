@@ -1,7 +1,7 @@
 # Budget Tracker
 [![](https://img.shields.io/badge/License-MIT-green)](#license)
 ## Description
-Budget tracker is a progressive web app which can be used to create and track funds with or without internet and hence it is very handly during travel when internet can be unstable over a period of time. It is built primarily using node.js, mongoDB, webpack and express.
+Budget tracker is a progressive web app which can be used to create and track funds with or without internet and hence it is very handy during travel when internet can be unstable over a period of time. It is built primarily using node.js, mongoDB, webpack and express.
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
