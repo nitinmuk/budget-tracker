@@ -3,7 +3,7 @@ body {
   font-family: Arial;
 }
 
-header h1 {
+header {
   transform: skewX(-2deg);
   padding : 2px;
   background-color: cadetblue;
