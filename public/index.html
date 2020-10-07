@@ -10,7 +10,8 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="manifest" href="dist/manifest.json" />
   <title>Budget Tracker</title>
 </head>
@@ -20,7 +21,7 @@
     <h1>Budget Tracker</h1>
     <h5>Track Your expense while you are online or offline</h5>
   </header>
-  <div class="wrapper">    
+  <div class="wrapper">
     <div class="total">
       <div class="total">Your total is: $<span id="total">0</span></div>
     </div>
@@ -36,11 +37,12 @@
     <div class="transactions">
       <table>
         <thead>
-          <th>Transaction</th>
-          <th>Amount</th>
+          <tr>
+            <th>Transaction</th>
+            <th>Amount</th>
+          </tr>
         </thead>
         <tbody id="tbody">
-
         </tbody>
       </table>
     </div>
@@ -48,14 +50,14 @@
     <canvas id="myChart"></canvas>
   </div>
   <!-- Footer starts -->
-<footer class="bottom footer">
-  <!-- Copyright starts-->
-  <div class="footer-copyright text-center py-3">
+  <footer class="bottom footer">
+    <!-- Copyright starts-->
+    <div class="footer-copyright text-center py-3">
       &copy; 2020 Copyright:
       <a class="link" href="https://github.com/nitinmuk/" target="_blank">Nitin Mukesh</a>
-  </div>
-  <!-- Copyright ends-->
-</footer>
+    </div>
+    <!-- Copyright ends-->
+  </footer>
 
   <script>
     if ("serviceWorker" in navigator) {
