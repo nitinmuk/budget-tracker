@@ -35,6 +35,7 @@ router.get("/api/transaction", (req, res) => {
 });
 
 router.post("/api/callbacks/:credentialMappingId", (req, res) => {
+  console.log("--------req.headers-----------\n", JSON.stringify(req.headers));
   console.log("--------req.body-----------------\n", JSON.stringify(req.body));
   console.log("--------request finished----------");
   res.status(200).json();
