@@ -14,8 +14,8 @@ app.use(logger("dev"));
 //app.use(express.urlencoded({ extended: true }));
 //app.use(express.json());
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json({ type: 'application/vnd.assaabloy.ma.credential-management-2.2+json' }));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json({ type: 'application/vnd.assaabloy.ma.credential-management-2.2+json' }));
 
 app.use(express.static("public"));
 
